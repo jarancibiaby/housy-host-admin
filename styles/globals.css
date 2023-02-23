@@ -1,0 +1,39 @@
+.flex-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.flex-center {
+  justify-self: center;
+  align-items: center;
+}
+
+.login {
+  padding: 1em;
+  background-color: #b5c8d565;
+}
+
+body {
+  background-color: #a9bdca;
+}
+
+login-text {
+  color: #8c9ea3;
+}
+
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  height: 98%;
+}
