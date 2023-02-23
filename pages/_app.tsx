@@ -32,13 +32,14 @@ function MyApp({ Component, pageProps }: AppProps) {
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           >
             <List>
-              {menuItems.map((item) => {
+              {menuItems.map((item, index) => {
                 return (
                   <>
                     <ListItem
                       disablePadding
                       sx={{ width: 250 }}
                       onClick={() => router.push(item.link)}
+                      key={index}
                     >
                       <ListItemButton>
                         <ListItemIcon>
