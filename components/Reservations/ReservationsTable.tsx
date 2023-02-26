@@ -6,13 +6,17 @@ import {
     DataGrid,
     GridAlignment,
     GridCallbackDetails,
+    GridColDef,
     GridColumns,
     GridSelectionModel,
 } from "@mui/x-data-grid";
+import CustomToolbar from "./CustomToolbar";
+import { COLUMNS_TABLE } from "../../models/const/columns-table";
 
 const mockReservations: Reservation[] =
     [
         {
+            "id": 1,
             "inmueble": "Aliquet Proin Consulting",
             "mes": 11,
             "concepto": "rhoncus. Donec est. Nunc ullamcorper, velit",
@@ -31,6 +35,7 @@ const mockReservations: Reservation[] =
             "TRM": "tempor, est"
         },
         {
+            "id": 2,
             "inmueble": "Pellentesque Habitant LLC",
             "mes": 1,
             "concepto": "molestie pharetra nibh. Aliquam ornare, libero at auctor ullamcorper,",
@@ -49,6 +54,7 @@ const mockReservations: Reservation[] =
             "TRM": "ultrices, mauris ipsum"
         },
         {
+            "id": 3,
             "inmueble": "Libero Morbi Ltd",
             "mes": 7,
             "concepto": "augue, eu tempor erat neque non quam. Pellentesque habitant morbi",
@@ -67,6 +73,7 @@ const mockReservations: Reservation[] =
             "TRM": "vulputate, lacus."
         },
         {
+            "id": 4,
             "inmueble": "Non Company",
             "mes": 6,
             "concepto": "risus. Donec nibh",
@@ -85,6 +92,7 @@ const mockReservations: Reservation[] =
             "TRM": "Morbi"
         },
         {
+            "id": 5,
             "inmueble": "Pharetra Foundation",
             "mes": 6,
             "concepto": "eros non enim commodo hendrerit. Donec porttitor tellus",
@@ -103,6 +111,7 @@ const mockReservations: Reservation[] =
             "TRM": "mi felis, adipiscing"
         },
         {
+            "id": 6,
             "inmueble": "Lorem Associates",
             "mes": 6,
             "concepto": "sem ut dolor dapibus gravida. Aliquam",
@@ -121,6 +130,7 @@ const mockReservations: Reservation[] =
             "TRM": "Mauris blandit enim"
         },
         {
+            "id": 7,
             "inmueble": "Molestie Tortor Inc.",
             "mes": 3,
             "concepto": "accumsan convallis, ante lectus convallis est, vitae sodales",
@@ -139,6 +149,7 @@ const mockReservations: Reservation[] =
             "TRM": "Phasellus elit"
         },
         {
+            "id": 8,
             "inmueble": "Nec Incorporated",
             "mes": 6,
             "concepto": "urna. Nullam lobortis quam a",
@@ -157,6 +168,7 @@ const mockReservations: Reservation[] =
             "TRM": "montes, nascetur"
         },
         {
+            "id": 9,
             "inmueble": "Dui Nec Incorporated",
             "mes": 2,
             "concepto": "sodales at, velit. Pellentesque ultricies dignissim",
@@ -175,6 +187,7 @@ const mockReservations: Reservation[] =
             "TRM": "vitae sodales nisi"
         },
         {
+            "id": 10,
             "inmueble": "Proin Vel Incorporated",
             "mes": 8,
             "concepto": "malesuada malesuada. Integer",
@@ -194,12 +207,6 @@ const mockReservations: Reservation[] =
         }
     ]
 
-const setupColumns = [
-    { field: "inmueble", headerName: "Inmueble", width: 50 },
-    { field: "mes", headerName: "Mes", width: 50 },
-    { field: "id_reserva", headerName: "Id Reserva", width: 50 },
-]
-
 export default function ReservationsTable() {
     const [reservations, setReservations] = useState([] as Reservation[]);
     const [selectionModel, setSelectionModel] = useState([] as string[]);
@@ -207,7 +214,7 @@ export default function ReservationsTable() {
 
     useEffect(() => {
         setReservations(mockReservations);
-        setColumnsDisplayed(setupColumns);
+        setColumnsDisplayed(COLUMNS_TABLE);
     }, []);
 
     const deleteRows = () => {
@@ -258,6 +265,7 @@ export default function ReservationsTable() {
                 checkboxSelection
                 onSelectionModelChange={handleSelectionChange}
                 selectionModel={selectionModel}
+                components={{Toolbar: CustomToolbar}}
             />
         </div>
     );

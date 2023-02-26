@@ -3,6 +3,7 @@ import { Box, Fab, Modal } from "@mui/material";
 import { useState } from "react";
 import PaymentsModal from "../../components/PaymentsModal";
 import PaymentsTable from "../../components/PaymentsTable";
+import ReservationsTable from "../../components/Reservations/ReservationsTable";
 
 export default function Payments() {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function Payments() {
   return (
     <>
       <div className="flex-container">
-        <PaymentsTable />
+        <ReservationsTable />
 
         <Box
           sx={{

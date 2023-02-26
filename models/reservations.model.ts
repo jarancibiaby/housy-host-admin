@@ -1,4 +1,5 @@
 export interface Reservation {
+    id: number,
     inmueble: string,
     mes: number,
     concepto: string,
