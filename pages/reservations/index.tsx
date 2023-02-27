@@ -1,7 +1,6 @@
 import EditIcon from "@mui/icons-material/Edit";
 import { Box, Fab, Modal } from "@mui/material";
 import { useState } from "react";
-import PaymentsModal from "../../components/PaymentsModal";
 import ReservationModal from "../../components/Reservations/ReservationModal";
 import ReservationsTable from "../../components/Reservations/ReservationsTable";
 import { Reservation } from "../../models/reservations.model";
