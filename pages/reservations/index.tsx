@@ -2,6 +2,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { Box, Fab, Modal } from "@mui/material";
 import { useState } from "react";
 import PaymentsModal from "../../components/PaymentsModal";
+import ReservationModal from "../../components/Reservations/ReservationModal";
 import ReservationsTable from "../../components/Reservations/ReservationsTable";
 import { Reservation } from "../../models/reservations.model";
 
@@ -40,7 +41,7 @@ export default function Payments() {
         </Box>
       </div>
       <Modal open={open} onClose={() => setOpen(false)}>
-        <PaymentsModal onSubmit={() => setOpen(false)}></PaymentsModal>
+        <ReservationModal selectedReservation={rowSelected} onSubmit={() => setOpen(false)}></ReservationModal>
       </Modal>
     </>
   );

@@ -4,7 +4,6 @@ import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
     DataGrid,
-    GridCallbackDetails,
     GridColumns,
     GridSelectionModel,
 } from "@mui/x-data-grid";
