@@ -1,17 +1,24 @@
-import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
 import { Box, Fab, Modal } from "@mui/material";
 import { useState } from "react";
 import PaymentsModal from "../../components/PaymentsModal";
-import PaymentsTable from "../../components/PaymentsTable";
 import ReservationsTable from "../../components/Reservations/ReservationsTable";
+import { Reservation } from "../../models/reservations.model";
 
 export default function Payments() {
   const [open, setOpen] = useState(false);
+  const [rowSelected, setRowSelected] = useState({} as Reservation);
+  const [buttonEditDisabled, setButtonEditDisable] = useState(true);
+
+  const handleRowSelected = (row: Reservation) => {
+    setRowSelected(row);
+    setButtonEditDisable(!rowSelected)
+  }
 
   return (
     <>
       <div className="flex-container">
-        <ReservationsTable />
+        <ReservationsTable onSelectedRow={handleRowSelected} />
 
         <Box
           sx={{
@@ -22,12 +29,13 @@ export default function Payments() {
         >
           <Fab
             color="primary"
-            aria-label="add"
+            aria-label="edit"
             onClick={() => {
               setOpen(true);
             }}
+            disabled={buttonEditDisabled}
           >
-            <AddIcon />
+            <EditIcon />
           </Fab>
         </Box>
       </div>

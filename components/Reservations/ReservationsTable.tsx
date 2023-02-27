@@ -4,15 +4,14 @@ import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
     DataGrid,
-    GridAlignment,
     GridCallbackDetails,
-    GridColDef,
     GridColumns,
     GridSelectionModel,
 } from "@mui/x-data-grid";
 import CustomToolbar from "./CustomToolbar";
 import { COLUMNS_TABLE } from "../../models/const/columns-table";
 
+/* TODO: Cambiar origen de datos cuando esté disponible la db */
 const mockReservations: Reservation[] =
     [
         {
@@ -207,7 +206,7 @@ const mockReservations: Reservation[] =
         }
     ]
 
-export default function ReservationsTable() {
+export default function ReservationsTable(props: { onSelectedRow: (row: Reservation) => void }) {
     const [reservations, setReservations] = useState([] as Reservation[]);
     const [selectionModel, setSelectionModel] = useState([] as string[]);
     const [columnsDisplayed, setColumnsDisplayed] = useState([] as GridColumns)
@@ -225,12 +224,10 @@ export default function ReservationsTable() {
         // filteredFileList.forEach((payment) => deletePayment(payment.id!));
     };
 
-    const handleSelectionChange = (
-        selectionModel: GridSelectionModel,
-        _: GridCallbackDetails
-      ) => {
+    const handleSelectionChange = (selectionModel: GridSelectionModel) => {
         setSelectionModel(selectionModel as string[]);
-      };    
+        props.onSelectedRow(mockReservations.find(reservation => reservation.id === selectionModel[0])!);
+    };
 
     const deleteButton = (
         <Button
@@ -262,10 +259,9 @@ export default function ReservationsTable() {
                 columns={columnsDisplayed}
                 pageSize={10}
                 rowsPerPageOptions={[10]}
-                checkboxSelection
                 onSelectionModelChange={handleSelectionChange}
                 selectionModel={selectionModel}
-                components={{Toolbar: CustomToolbar}}
+                components={{ Toolbar: CustomToolbar }}
             />
         </div>
     );

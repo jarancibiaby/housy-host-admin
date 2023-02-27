@@ -1,0 +1,6 @@
+Create datagrid Table:
+    -Construir datos mockeados y tabla: 2hs.
+    -Agregar toolbar para filtrar columnas: 1hs (2hs intentadolo hacerlo manual).
+
+Reservation edition modal:
+    -Editar campos modal: 
