@@ -42,6 +42,7 @@ export default function ReservationModal({ onSubmit, selectedReservation }: prop
                 justifyContent="center"
                 alignItems="center"
             >
+
                 <Grid item margin={1} sx={{ width: "100%" }}>
                     <Box component="form" noValidate autoComplete="off">
                         <FormControl fullWidth variant="filled">
@@ -55,6 +56,66 @@ export default function ReservationModal({ onSubmit, selectedReservation }: prop
                                 value={reservation.inmueble}
                                 onChange={(event) => {
                                     setReservation({ ...reservation, inmueble: event.target.value });
+                                }}
+                                onKeyPress={handleEnter}
+                            />
+                        </FormControl>
+                    </Box>
+                </Grid>
+
+                <Grid item margin={1} sx={{ width: "100%" }}>
+                    <Box component="form" noValidate autoComplete="off">
+                        <FormControl fullWidth variant="filled">
+                            <TextField
+                                InputLabelProps={{ shrink: true }}
+                                fullWidth
+                                id="filled-basic"
+                                type="text"
+                                label="Id Reserva"
+                                variant="filled"
+                                value={reservation.id_reserva}
+                                onChange={(event) => {
+                                    setReservation({ ...reservation, id_reserva: +event.target.value });
+                                }}
+                                onKeyPress={handleEnter}
+                            />
+                        </FormControl>
+                    </Box>
+                </Grid>
+
+                <Grid item margin={1} sx={{ width: "100%" }}>
+                    <Box component="form" noValidate autoComplete="off">
+                        <FormControl fullWidth variant="filled">
+                            <TextField
+                                InputLabelProps={{ shrink: true }}
+                                fullWidth
+                                id="filled-basic"
+                                type="text"
+                                label="Presupuesto"
+                                variant="filled"
+                                value={reservation.presupuesto}
+                                onChange={(event) => {
+                                    setReservation({ ...reservation, presupuesto: +event.target.value });
+                                }}
+                                onKeyPress={handleEnter}
+                            />
+                        </FormControl>
+                    </Box>
+                </Grid>
+
+                <Grid item margin={1} sx={{ width: "100%" }}>
+                    <Box component="form" noValidate autoComplete="off">
+                        <FormControl fullWidth variant="filled">
+                            <TextField
+                                InputLabelProps={{ shrink: true }}
+                                fullWidth
+                                id="filled-basic"
+                                type="text"
+                                label="Comisión Real"
+                                variant="filled"
+                                value={reservation.comision_real}
+                                onChange={(event) => {
+                                    setReservation({ ...reservation, comision_real: event.target.value });
                                 }}
                                 onKeyPress={handleEnter}
                             />
