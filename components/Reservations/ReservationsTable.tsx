@@ -213,14 +213,6 @@ export default function ReservationsTable(props: { onSelectedRow: (row: Reservat
         setColumnsDisplayed(COLUMNS_TABLE);
     }, []);
 
-    const deleteRows = () => {
-        // const filteredFileList = reservations.filter((item) =>
-        //   selectionModel.includes(item.id!)
-        // );
-
-        // filteredFileList.forEach((payment) => deletePayment(payment.id!));
-    };
-
     const handleSelectionChange = (selectionModel: GridSelectionModel) => {
         setSelectionModel(selectionModel as string[]);
         props.onSelectedRow(mockReservations.find(reservation => reservation.id === selectionModel[0])!);

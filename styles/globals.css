@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+
+
 .flex-container {
   position: relative;
   margin: 0;
@@ -13,13 +16,8 @@
   align-items: center;
 }
 
-.login {
-  padding: 1em;
-  background-color: #b5c8d565;
-}
-
 body {
-  background-color: #a9bdca;
+  background-color: #F3F3F3;
 }
 
 login-text {
@@ -38,18 +36,22 @@ div#__next>div {
   height: 98%;
 }
 
-.loginButton {
-  background-color: white;
-  color: #757575;
-  border: 1px solid #757575;
-  font-size: 16px;
-  border-radius: 4px;
-  padding: 10px 16px;
+section.login {
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.loginButton img {
-  margin-right: 10px;
-  width: 20px;
+section.login p, a  {
+  font-family: Nunito, sans-serif;
+  font-size: x-large;
+  text-align: center;
+}
+
+section.login a {
+  font-size: large;
+  text-align: center;
+  text-decoration: none;
+  color: blue;
 }

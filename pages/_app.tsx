@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react"
 import "../styles/globals.css";
 import LateralMenu from "../components/Menu/LateralMenu";
-import LoginButton from "../components/LoginButton/LoginButton";
+import Login from "../components/Login/Login";
 
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
@@ -17,14 +17,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 
   const notLoggedContent = (
     <>
-      <LoginButton />
+      <Login />
     </>
   )
 
   return (
     <SessionProvider session={session}>
       <>
-        {loggedContent}
+      {console.log(session)}
+        {session ? loggedContent : notLoggedContent}
       </>
     </SessionProvider>
   );
