@@ -3,6 +3,7 @@ import { firebaseApp } from "../firebase-config";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { mapUserData } from "../auth/useUser";
 import { setUserCookie } from "../auth/userCookie";
+import { useSession } from "next-auth/react";
 
 const auth = getAuth(firebaseApp);
 const googleProvider = new GoogleAuthProvider();
@@ -21,6 +22,9 @@ const firebaseAuthConfig = ({ signInSuccessUrl }) => ({
 });
 
 const Home = () => {
+
+  const session = useSession();
+  console.log({data: session})
   const signInSuccessUrl = "/gastos";
   return (
     <div style={{ marginTop: "20em" }}>

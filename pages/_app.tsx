@@ -1,62 +1,32 @@
 /* eslint-disable react/jsx-key */
-import { InsertLink, Menu } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { MENU_ITEMS as menuItems } from "../models/const/menu-items.const";
-import { LoadingProvider } from "../shared/hooks/LoadingContext";
+import { SessionProvider } from "next-auth/react"
 import "../styles/globals.css";
+import LateralMenu from "../components/Menu/LateralMenu";
+import LoginButton from "../components/LoginButton/LoginButton";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const [open, setOpen] = useState(false);
-  const router = useRouter();
+
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+
+  const loggedContent = (
+    <>
+      <LateralMenu />
+      <Component {...pageProps} />
+    </>
+  );
+
+  const notLoggedContent = (
+    <>
+      <LoginButton />
+    </>
+  )
 
   return (
-    <LoadingProvider>
+    <SessionProvider session={session}>
       <>
-        <Button size="large">
-          <Menu onClick={() => setOpen(true)} />
-        </Button>
-        <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
-          <Box
-            sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-          >
-            <List>
-              {menuItems.map((item, index) => {
-                return (
-                  <>
-                    <ListItem
-                      disablePadding
-                      sx={{ width: 250 }}
-                      onClick={() => router.push(item.link)}
-                      key={index}
-                    >
-                      <ListItemButton>
-                        <ListItemIcon>
-                          <InsertLink />
-                        </ListItemIcon>
-                        <ListItemText primary={item.name} />
-                      </ListItemButton>
-                    </ListItem>
-                  </>
-                );
-              })}
-            </List>
-          </Box>
-        </Drawer>
-        <Component {...pageProps} />
+        {loggedContent}
       </>
-    </LoadingProvider>
+    </SessionProvider>
   );
 }
 
