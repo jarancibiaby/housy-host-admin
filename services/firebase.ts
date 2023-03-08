@@ -6,7 +6,7 @@ import {
   Timestamp,
 } from "@firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { getUserFromCookie } from "../auth/userCookie";
+import { getUserFromCookie } from "../pages/api/auth/userCookie";
 import { db } from "../firebase-config";
 
 export const getUserId = () => {

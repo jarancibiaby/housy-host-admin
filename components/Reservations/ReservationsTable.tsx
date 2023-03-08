@@ -5,6 +5,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { DataGrid, GridColumns, GridSelectionModel } from "@mui/x-data-grid";
 import CustomToolbar from "./CustomToolbar";
 import { COLUMNS_TABLE } from "../../models/const/columns-table";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function ReservationsTable(props: {
   onSelectedRow: (row: Reservation) => void;
@@ -13,7 +15,15 @@ export default function ReservationsTable(props: {
   const [selectionModel, setSelectionModel] = useState([] as string[]);
   const [columnsDisplayed, setColumnsDisplayed] = useState([] as GridColumns);
 
+  const { data: session } = useSession();
+  const router = useRouter();
+
   useEffect(() => {
+    if (!session) {
+      router.push("/");
+      return;
+    }
+
     fetch("https://flaskapp-cr-v2-tjv7uu7ncq-ue.a.run.app/reservations")
       .then((res) => res.json())
       .then((reservations: Reservation[]) => {

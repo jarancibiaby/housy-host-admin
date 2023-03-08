@@ -3,4 +3,15 @@ Create datagrid Table:
     -Agregar toolbar para filtrar columnas: 1hs (2hs intentadolo hacerlo manual).
 
 Reservation edition modal:
-    -Editar campos modal: 
+    -Editar campos modal: 2hs
+
+---------------------------------------------------------PAGADO---------------------------------------------------------
+
+(06/03/2022)
+    -Configurar Google Credentials para dev: 1hs
+
+(07/03/2022)
+    -Configurar front para loguear con next auth y google: 2hs
+    -Eliminar boton eliminar tabla: 1hs
+    -Pantalla de inicio: 2.5hs
+
