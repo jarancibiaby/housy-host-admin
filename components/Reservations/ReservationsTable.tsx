@@ -7,6 +7,8 @@ import {
 } from "@mui/x-data-grid";
 import CustomToolbar from "./CustomToolbar";
 import { COLUMNS_TABLE } from "../../models/const/columns-table";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 /* TODO: Cambiar origen de datos cuando esté disponible la db */
 const mockReservations: Reservation[] =
@@ -206,9 +208,12 @@ const mockReservations: Reservation[] =
 export default function ReservationsTable(props: { onSelectedRow: (row: Reservation) => void }) {
     const [reservations, setReservations] = useState([] as Reservation[]);
     const [selectionModel, setSelectionModel] = useState([] as string[]);
-    const [columnsDisplayed, setColumnsDisplayed] = useState([] as GridColumns)
+    const [columnsDisplayed, setColumnsDisplayed] = useState([] as GridColumns);
+    const { data: session } = useSession();
+    const router = useRouter();
 
     useEffect(() => {
+        if (!session) router.push("/"); 
         setReservations(mockReservations);
         setColumnsDisplayed(COLUMNS_TABLE);
     }, []);

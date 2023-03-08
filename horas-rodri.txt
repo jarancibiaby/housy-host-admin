@@ -13,4 +13,5 @@ Reservation edition modal:
 (07/03/2022)
     -Configurar front para loguear con next auth y google: 2hs
     -Eliminar boton eliminar tabla: 1hs
+    -Pantalla de inicio: 2.5hs
 
