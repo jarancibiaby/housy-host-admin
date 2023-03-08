@@ -1,19 +1,16 @@
 export interface Reservation {
-    id: number,
-    inmueble: string,
-    mes: number,
-    concepto: string,
-    id_reserva: number,
-    asseo_ppto: string,
-    asseo_real: string,
-    comision_ppto: string,
-    comision_real: string,
-    negociacion: string,
-    neto_propietario: string,
-    noches: number,
-    origen: string,
-    presupuesto: number,
-    real: string,
-    tipo: string,
-    TRM: string,
+  id: string;
+  guestName: string;
+  totalPrice: string;
+  aseoPpto: string;
+  comisionPpto: string;
+  comisionReal: string;
+  netoPropietario: string;
+  presupuestoReal: string;
+  aseoReal: string;
+  nights: string;
+  channelName: string;
+  negociacion: string;
+  mes: string;
+  anio: string;
 }
