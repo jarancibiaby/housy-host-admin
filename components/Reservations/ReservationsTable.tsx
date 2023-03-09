@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Reservation } from "../../models/reservations.model";
-import { Button } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { DataGrid, GridColumns, GridSelectionModel } from "@mui/x-data-grid";
 import CustomToolbar from "./CustomToolbar";
 import { COLUMNS_TABLE } from "../../models/const/columns-table";
@@ -38,29 +36,12 @@ export default function ReservationsTable(props: {
     setColumnsDisplayed(COLUMNS_TABLE);
   }, []);
 
-  const deleteRows = () => {
-    // const filteredFileList = reservations.filter((item) =>
-    //   selectionModel.includes(item.id!)
-    // );
-    // filteredFileList.forEach((payment) => deletePayment(payment.id!));
-  };
-
   const handleSelectionChange = (selectionModel: GridSelectionModel) => {
     setSelectionModel(selectionModel as string[]);
     props.onSelectedRow(
       reservations.find((reservation) => reservation.id === selectionModel[0])!
     );
   };
-
-  const deleteButton = (
-    <Button
-      style={{ position: "absolute", bottom: 15, left: 135, zIndex: 1 }}
-      color="error"
-      size="large"
-    >
-      <DeleteIcon onClick={deleteRows} />
-    </Button>
-  );
 
   return (
     <div
@@ -72,7 +53,6 @@ export default function ReservationsTable(props: {
         position: "relative",
       }}
     >
-      {selectionModel.length > 0 && deleteButton}
       <DataGrid
         sx={{
           padding: 1,

@@ -7,7 +7,7 @@ export default function Logout() {
     const router = useRouter();
 
     useEffect(() => {
-        signOut();
+        signOut({ redirect: false });
         router.push("/");
     }, []);
 

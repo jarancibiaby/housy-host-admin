@@ -15,3 +15,5 @@ Reservation edition modal:
     -Eliminar boton eliminar tabla: 1hs
     -Pantalla de inicio: 2.5hs
 
+(08/03/2023)
+    -Refactor logout: 1.5hs
