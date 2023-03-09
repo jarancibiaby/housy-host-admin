@@ -7,6 +7,7 @@ import CustomToolbar from "./CustomToolbar";
 import { COLUMNS_TABLE } from "../../models/const/columns-table";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { mockReservations } from "../../models/mock/reservations.mock";
 
 export default function ReservationsTable(props: {
   onSelectedRow: (row: Reservation) => void;
@@ -24,12 +25,17 @@ export default function ReservationsTable(props: {
       return;
     }
 
-    fetch("https://flaskapp-cr-v2-tjv7uu7ncq-ue.a.run.app/reservations")
+    fetch(
+      "https://flaskapp-cr-v2-tjv7uu7ncq-ue.a.run.app/paginated-reservations?limit=100"
+    )
       .then((res) => res.json())
-      .then((reservations: Reservation[]) => {
+      .then(({ reservations }) => {
         setReservations(reservations);
         setColumnsDisplayed(COLUMNS_TABLE);
       });
+
+    setReservations(mockReservations);
+    setColumnsDisplayed(COLUMNS_TABLE);
   }, []);
 
   const deleteRows = () => {

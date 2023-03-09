@@ -1,48 +1,44 @@
 import { GridColDef } from "@mui/x-data-grid";
 
 export const COLUMNS_TABLE: GridColDef[] = [
-  { field: "id", headerName: "Id Reserva", width: 100, hide: false },
+  { field: "id", headerName: "Id Reserva", hide: false },
   {
     field: "guestName",
     headerName: "Nombre Inquilino",
     width: 200,
     hide: false,
   },
-  { field: "totalPrice", headerName: "Presupuesto", width: 100, hide: true },
+  { field: "totalPrice", headerName: "Presupuesto", hide: true },
   {
     field: "aseoPpto",
     headerName: "Aseo Presupuesto",
-    width: 100,
     hide: true,
   },
+  { field: "aseoReal", headerName: "Aseo Real", hide: false },
+  { field: "mes", headerName: "Mes", hide: false },
+  { field: "anio", headerName: "Año", hide: false },
+
+  { field: "nights", headerName: "Noches", hide: false },
+  { field: "channelName", headerName: "Origen", hide: false },
   {
     field: "comisionPpto",
     headerName: "Comision Presupuesto",
-    width: 100,
-    hide: true,
+    hide: false,
   },
   {
     field: "comisionReal",
     headerName: "Comision Real",
-    width: 100,
-    hide: true,
+    hide: false,
   },
   {
     field: "netoPropietario",
     headerName: "Neto Propietario",
-    width: 100,
-    hide: true,
+    hide: false,
   },
   {
     field: "presupuestoReal",
     headerName: "Presupuesto Real",
-    width: 100,
-    hide: true,
+    hide: false,
   },
-  { field: "aseoReal", headerName: "Aseo Real", width: 100, hide: true },
-  { field: "nights", headerName: "Noches", width: 100, hide: true },
-  { field: "channelName", headerName: "Origen", width: 100, hide: true },
-  { field: "negociacion", headerName: "Negociacion", width: 100, hide: true },
-  { field: "mes", headerName: "Mes", width: 100, hide: false },
-  { field: "anio", headerName: "Mes", width: 100, hide: false },
+  { field: "negociacion", headerName: "Negociacion", hide: false },
 ];

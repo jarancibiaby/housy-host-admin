@@ -14,3 +14,4 @@ export interface Reservation {
   mes: string;
   anio: string;
 }
+// falta inmueble
