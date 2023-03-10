@@ -4,6 +4,7 @@ import { useState } from "react";
 import ReservationModal from "../../components/Reservations/ReservationModal";
 import ReservationsTable from "../../components/Reservations/ReservationsTable";
 import { Reservation } from "../../models/reservations.model";
+import edit from "../../services/reservations.service";
 
 export default function Payments() {
   const [open, setOpen] = useState(false);
@@ -13,6 +14,11 @@ export default function Payments() {
   const handleRowSelected = (row: Reservation) => {
     setRowSelected(row);
     setButtonEditDisable(!rowSelected)
+  }
+
+  const handleOnSubmitModal = (reservation: Reservation) => {
+    setOpen(false);
+    //edit()
   }
 
   return (
@@ -40,7 +46,7 @@ export default function Payments() {
         </Box>
       </div>
       <Modal open={open} onClose={() => setOpen(false)}>
-        <ReservationModal selectedReservation={rowSelected} onSubmit={() => setOpen(false)}></ReservationModal>
+        <ReservationModal selectedReservation={rowSelected} onSubmit={(reservation) => handleOnSubmitModal(reservation)}></ReservationModal>
       </Modal>
     </>
   );
