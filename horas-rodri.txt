@@ -17,3 +17,6 @@ Reservation edition modal:
 
 (08/03/2023)
     -Refactor logout: 1.5hs
+
+(09/03/2023 y 10/03/2023)
+    -Conectar modal edicion con el webhook: 3hs
