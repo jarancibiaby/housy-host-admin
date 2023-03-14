@@ -20,3 +20,8 @@ Reservation edition modal:
 
 (09/03/2023 y 10/03/2023)
     -Conectar modal edicion con el webhook: 3hs
+
+---------------------------------------------------------PAGADO---------------------------------------------------------
+
+(13/03/2023)
+    -Finalizacion desarrollo editar reserva: 2hs
