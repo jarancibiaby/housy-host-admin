@@ -14,7 +14,7 @@ const style = {
 };
 
 type props = {
-  onSubmit: () => void;
+  onSubmit: (reservation: Reservation) => void;
   selectedReservation: Reservation;
 };
 
@@ -33,7 +33,7 @@ export default function ReservationModal({
     useState<Reservation>(selectedReservation);
 
   const handleSubmit = () => {
-    onSubmit();
+    onSubmit(reservation);
   };
 
   return (

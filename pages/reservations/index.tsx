@@ -5,20 +5,27 @@ import ReservationModal from "../../components/Reservations/ReservationModal";
 import ReservationsTable from "../../components/Reservations/ReservationsTable";
 import { Reservation } from "../../models/reservations.model";
 import edit from "../../services/reservations.service";
+import { RequestReservationsEdit } from "../../models/request.reservations.edit"
+import { useLoading } from "../../shared/hooks/LoadingContext";
 
 export default function Payments() {
   const [open, setOpen] = useState(false);
   const [rowSelected, setRowSelected] = useState({} as Reservation);
   const [buttonEditDisabled, setButtonEditDisable] = useState(true);
+  const { loading, setLoading } = useLoading();
 
   const handleRowSelected = (row: Reservation) => {
     setRowSelected(row);
     setButtonEditDisable(!rowSelected)
   }
 
-  const handleOnSubmitModal = (reservation: Reservation) => {
+  const handleOnSubmitModal = async (reservation: Reservation) => {
     setOpen(false);
-    //edit()
+    setLoading(true);
+    edit({ data: reservation } as RequestReservationsEdit).finally(() => {
+      setLoading(false)
+    }
+    );
   }
 
   return (
